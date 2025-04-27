@@ -20,7 +20,6 @@ export default function Content() {
 
   return (
     <div className="content">
-    {isAuth} <div className="logOutButton" ><Button /> </div>
 
     <div>
         

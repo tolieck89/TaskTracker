@@ -1,9 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { Form, Input, Button } from 'antd';
-import { AuthContext } from '../providers/context'; 
+import { AuthContext, LanguageContext, ThemeContext } from '../providers/context'; 
 
 const LoginForm = () => {
   const { setIsAuth } = useContext(AuthContext);
+  const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
   const [error, setError] = useState('');
 
   const onFinish = (values) => {
@@ -17,6 +19,10 @@ const LoginForm = () => {
   };
 
   return (
+    <div className="login-form-container">
+      {/* <h2>{language==="EN" ? "Log in:" : "Увійти:"}</h2> */}
+      <h4>{language==="EN" ? "Input your creds:" : "Введіть дані дял входу:"}</h4>
+
     <Form name="login" onFinish={onFinish}>
       <Form.Item
         name="username"
@@ -40,6 +46,7 @@ const LoginForm = () => {
         </Button>
       </Form.Item>
     </Form>
+    </div>
   );
 };
 

@@ -1,10 +1,12 @@
 import { useEffect, useState, useContext } from "react";
 import { Select, Switch } from "antd";
-import { LanguageContext, ThemeContext, THEMES, LANGUAGES } from "./providers/context";
+import { LanguageContext, ThemeContext, THEMES, LANGUAGES, AuthContext } from "./providers/context";
+import Button from "./theme/Button";
 import  "./Navigation.css"
 
 export default function Navigation() {
     const defaultClassName = 'navigation';
+    const { isAuth } = useContext(AuthContext); 
 
     const [className, setClassName] = useState(defaultClassName);
 
@@ -55,6 +57,9 @@ export default function Navigation() {
                 />
             </div>
             </div>
+                
+            {isAuth} <div className="logOutButton" ><Button /> </div>
+
             
         </div>
     )

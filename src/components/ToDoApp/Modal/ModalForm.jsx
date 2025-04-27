@@ -74,8 +74,8 @@ export default function ModalForm() {
           <Option value="" disabled='true'>Select assignee</Option> 
           <Option value="Gypsy's sister">Gypsy's sister</Option>
           <Option value="Behemoth">Behemoth</Option>
-          <Option value="Clupea khabalka">Khabalka</Option>
-          <Option value="Ugly freak">Ugly freak"</Option>
+          <Option value="Clupea khabalka">Clupea khabalka</Option>
+          <Option value="Ugly freak">Ugly freak</Option>
           <Option value="Tolieck the fabulous">Tolieck the fabulous</Option>
         </Select>
       </Form.Item>

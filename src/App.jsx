@@ -14,9 +14,10 @@ function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
+      <AuthProvider>
         <Navigation />
         
-        <AuthProvider>
+       
 
          <Content />
 
