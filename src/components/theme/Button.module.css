@@ -1,0 +1,29 @@
+button {
+    border: 1px solid;
+    padding: 4px 10px;
+    z-index: 3;
+
+}
+.lightBtn {
+    background-color: rgb(248, 247, 246);
+    border-radius: 6px;
+    border: rgb(94, 94, 94) solid 1px;
+    color: rgb(78, 78, 78);
+} 
+.darkBtn:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in-out;
+} 
+.lightBtn:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.darkBtn{
+    background-color: rgb(63, 63, 63);
+    border-radius: 6px;
+    border: rgb(119, 119, 119);
+    color: wheat;
+}

@@ -1,0 +1,15 @@
+.light-theme .ant-modal-content, .light-theme .ant-modal-header {
+    background-color: #ffffff;
+    color: #222;
+  }
+  
+  .dark-theme .ant-modal-content,  .dark-theme .ant-modal-header,  .dark-theme .ant-modal-title, .dark-theme .ant-modal-body, 
+  .dark-theme .ant-form-item-label{
+    background-color: #4d4a4a;
+    color: white;
+  }
+
+  .dark-theme  .ant-btn {
+    background-color: #4d4a4a;
+    border: 1px solid #c5c5c5;
+  }

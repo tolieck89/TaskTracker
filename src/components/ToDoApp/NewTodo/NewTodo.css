@@ -1,0 +1,70 @@
+    .addTaskButton{
+        border-radius: 5px;
+        background-color: #b9bebe; 
+        border: none;
+        padding: 5px 10px;
+        color: white;
+       width: 100%;
+        padding: 10px;
+        opacity: 0.8;
+    }
+
+    .button-div{
+        display: flex;
+        justify-content:right;
+        align-items: center;
+        gap: 10px;
+        /* margin-top: 10px; */
+    }
+    .addTaskButton:hover{
+        background-color: #5c6161; 
+        transform: scale(1.01);
+        opacity: 1;
+    }
+
+    .add-new-task{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        /* padding: 10px; */
+        /* background-color: #615e5e;  */
+        border-radius: 5px; 
+        /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    }
+
+    .add-new-task-selectors{
+        display: flex;
+        
+        justify-content: start;
+        align-items: center;
+        gap: 4px;
+        flex-wrap: wrap;
+        /* padding: 10px; */
+        /* background-color: #615e5e;  */
+        border-radius: 5px; 
+ 
+    }
+
+    .modal-background {
+        position: fixed;            
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5); 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;              
+      }
+      
+      .modal-window {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        width: 400px;
+        max-width: 90vw;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      }
