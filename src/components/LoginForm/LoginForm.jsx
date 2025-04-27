@@ -21,7 +21,7 @@ const LoginForm = () => {
   return (
     <div className="login-form-container">
       {/* <h2>{language==="EN" ? "Log in:" : "Увійти:"}</h2> */}
-      <h4>{language==="EN" ? "Input your creds:" : "Введіть дані дял входу:"}</h4>
+      <h4>{language==="EN" ? "Input your creds:" : "Введіть дані для входу:"}</h4>
 
     <Form name="login" onFinish={onFinish}>
       <Form.Item
