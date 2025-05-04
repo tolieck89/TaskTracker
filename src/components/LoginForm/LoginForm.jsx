@@ -4,7 +4,7 @@ import { AuthContext, LanguageContext, ThemeContext } from '../providers/context
 
 const LoginForm = () => {
   const { setIsAuth } = useContext(AuthContext);
-  const { theme } = useContext(ThemeContext);
+
   const { language } = useContext(LanguageContext);
   const [error, setError] = useState('');
 
