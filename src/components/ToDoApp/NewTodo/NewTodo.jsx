@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setSelectedTask } from "../../../redux/actions/tasksActions";
+import { setSelectedTask } from "../../../redux/slices/tasksSlice";
 import { Button } from "antd";
 
 export default function NewTodo() {

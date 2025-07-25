@@ -2,7 +2,7 @@ import { Modal } from "antd";
 import ModalForm from "./ModalForm";
 import ModalRead from "./ModalRead";
 import { useSelector, useDispatch } from "react-redux";
-import { setSelectedTask } from "../../../redux/actions/tasksActions";
+import { setSelectedTask } from "../../../redux/slices/tasksSlice";
 
 export default function ModalComponent() {
   const dispatch = useDispatch();

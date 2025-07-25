@@ -1,10 +1,10 @@
-import { createStore, combineReducers } from 'redux';
-import {taskReducer} from './reducers/tasksReducer'
+import { configureStore } from '@reduxjs/toolkit';
+import tasksReducer from './slices/tasksSlice'; 
 
-const rootReducer = combineReducers({
-  tasksState: taskReducer,
+const store = configureStore({
+  reducer: {
+    tasksState: tasksReducer,
+  },
 });
-
-const store = createStore(rootReducer);
 
 export default store;

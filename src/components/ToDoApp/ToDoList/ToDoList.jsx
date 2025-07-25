@@ -4,7 +4,7 @@ import {
   deleteTask,
   toggleTaskCompletion,
   setSelectedTask,
-} from "../../../redux/actions/tasksActions";
+} from "../../../redux/slices/tasksSlice";
 
 export default function ToDoList() {
   const tasks = useSelector((state) => state.tasksState.tasks);

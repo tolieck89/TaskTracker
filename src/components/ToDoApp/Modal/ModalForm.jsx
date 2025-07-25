@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Input, Select, Form } from "antd";
 import { useEffect, useState } from "react";
-import { updateTask, setSelectedTask, addTask} from "../../../redux/actions/tasksActions";
+import { updateTask, setSelectedTask, addTask} from "../../../redux/slices/tasksSlice";
 
 
 const { TextArea } = Input;

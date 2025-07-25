@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setSelectedTask } from "../../redux/actions/tasksActions";
+import { setSelectedTask } from "../../redux/slices/tasksSlice";
 import NewTodo from "./NewTodo/NewTodo";
 import ToDoList from "./ToDoList/ToDoList";
 import ModalComponent from "./Modal/ModalComponent"; 

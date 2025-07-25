@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { updateTask, setSelectedTask} from "../../../redux/actions/tasksActions";
+import { updateTask, setSelectedTask} from "../../../redux/slices/tasksSlice";
 import { Button } from "antd";
 
 export default function ModalRead() {
