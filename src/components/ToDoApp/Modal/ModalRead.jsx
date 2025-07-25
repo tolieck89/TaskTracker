@@ -1,33 +1,30 @@
-import { useContext, useEffect } from "react";
-import { ModalContext } from "../../providers/ModalProvider";
+import { useSelector, useDispatch } from "react-redux";
+import { updateTask, setSelectedTask} from "../../../redux/actions/tasksActions";
 import { Button } from "antd";
 
 export default function ModalRead() {
-  const { taskToEdit, isModalOpen, setMode } = useContext(ModalContext);
+  const selectedTask = useSelector((state) => state.tasksState.selectedTask);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!isModalOpen || !taskToEdit) return;
-  }, [taskToEdit, isModalOpen]);
+  if (!selectedTask) return null;
 
-  if (!taskToEdit) {
-    return <div>Loading...</div>;
-  }
+  const handleEdit = () => {
+    dispatch(setSelectedTask({ ...selectedTask, mode: "edit" }));
+  };
 
   return (
     <div className="modal-read">
-      <Button 
-        type="primary" 
-        onClick={() => setMode("edit")} 
-      >✏️ Edit this task
+      <Button type="primary" onClick={handleEdit}>
+        ✏️ Edit this task
       </Button>
 
       <h2>Task Details</h2>
-      <p><strong>Title:</strong> {taskToEdit.title}</p>
-      <p><strong>Status:</strong> {taskToEdit.status}</p>
-      <p><strong>Priority:</strong> {taskToEdit.priority}</p>
-      <p><strong>Assignee:</strong> {taskToEdit.assignee}</p>
-      <p><strong>Description:</strong> {taskToEdit.description}</p>
-      <p><strong>Comment:</strong> {taskToEdit.comment}</p>
+      <p><strong>Title:</strong> {selectedTask.title}</p>
+      <p><strong>Status:</strong> {selectedTask.status}</p>
+      <p><strong>Priority:</strong> {selectedTask.priority}</p>
+      <p><strong>Assignee:</strong> {selectedTask.assignee}</p>
+      <p><strong>Description:</strong> {selectedTask.description}</p>
+      <p><strong>Comment:</strong> {selectedTask.comment}</p>
     </div>
   );
 }

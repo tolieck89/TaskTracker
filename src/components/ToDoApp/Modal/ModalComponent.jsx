@@ -1,34 +1,28 @@
-import React from "react";
-import { Modal} from "antd";
-import { useContext } from "react";
-import { ModalContext } from "../../providers/ModalProvider";
+import { Modal } from "antd";
 import ModalForm from "./ModalForm";
 import ModalRead from "./ModalRead";
-import "./modal.css";
+import { useSelector, useDispatch } from "react-redux";
+import { setSelectedTask } from "../../../redux/actions/tasksActions";
 
 export default function ModalComponent() {
-    const { 
-      isModalOpen, closeModal, createNewTask, taskToEdit, mode, } = useContext(ModalContext);
+  const dispatch = useDispatch();
+  const selectedTask = useSelector((state) => state.tasksState.selectedTask);
 
-    return (
-        <Modal
-          title={
-            !!taskToEdit 
-              ? (mode === "read" ? "Task Details" : "Edit Task") 
-              : "Create New Task"
-          }
-          open={isModalOpen}
-          onOk={mode === "read" ? closeModal : createNewTask} 
+  const handleClose = () => dispatch(setSelectedTask(null));
 
-          onCancel={closeModal}
-          okText="OK"
-          cancelText="Cancel"
-          contentBg="green"
-          сlassName="modal-dark"
+  if (!selectedTask) return null;
 
-        >  
-          {mode==="read" ?  <ModalRead /> : <ModalForm />}
-        </Modal>
-      );
-    }
-      
+  const isEdit = selectedTask.mode === "edit";
+  const isCreate = selectedTask.mode === "create";
+
+  return (
+    <Modal
+      open={!!selectedTask}
+      onCancel={handleClose}
+      footer={null}
+      title={isCreate ? "Нова задача" : isEdit ? "Редагування" : "Задача"}
+    >
+      {isCreate || isEdit ? <ModalForm /> : <ModalRead />}
+    </Modal>
+  );
+}

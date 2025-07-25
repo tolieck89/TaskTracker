@@ -1,28 +1,38 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { setSelectedTask } from "../../redux/actions/tasksActions";
 import NewTodo from "./NewTodo/NewTodo";
 import ToDoList from "./ToDoList/ToDoList";
-import ModalProvider from "../providers/ModalProvider";
-import ModalComponent from "./Modal/ModalComponent";
-import { useContext, useEffect } from "react";
-import { ThemeContext, LanguageContext } from "../providers/context";
-
+import ModalComponent from "./Modal/ModalComponent"; 
 
 export default function ToDoApp() {
-  const {theme} = useContext(ThemeContext); 
-  const {language} = useContext(LanguageContext);
-  
- 
+  const dispatch = useDispatch();
+
+  const handleAddClick = () => {
+    dispatch(setSelectedTask({
+      id: Date.now().toString(),
+      title: "",
+      status: "",
+      priority: "",
+      issue: "",
+      comment: "",
+      assignee: "",
+      description: "",
+      completed: false,
+      mode: "edit", 
+    }));
+  };
 
   return (
     <div>
-      <h3>{language==='EN' ? "My tasks for today" : "Мої задачі на сьогодні"}</h3>
+      <h3>Мої задачі на сьогодні</h3>
 
-      <ModalProvider>
-          <NewTodo />
-          <ToDoList />
-       
-          <ModalComponent /> 
-      </ModalProvider>
+      {/* <button onClick={handleAddClick} className="add-task-button">
+        ➕ Додати задачу
+      </button> */}
+
+      <NewTodo />
+      <ToDoList />
+      <ModalComponent />
     </div>
   );
 }

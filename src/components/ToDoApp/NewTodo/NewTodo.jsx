@@ -1,34 +1,19 @@
-import { useContext, useEffect } from "react";
-import { ModalContext } from "../../providers/ModalProvider";
+import { useDispatch } from "react-redux";
+import { setSelectedTask } from "../../../redux/actions/tasksActions";
 import { Button } from "antd";
-import "../ToDoList/ToDoList.css";
-import {ThemeContext, LanguageContext} from "../../providers/context";
-
 
 export default function NewTodo() {
- 
-  const {
-    showModal, handleChangePrior, handleChangeStatus, handleChangeIssue, handleChangeComment, handleChangeAssignee, handleChangeTask,
-    setMode, taskToEdit, handleChangeTitle, handleChangeDescription,} = useContext(ModalContext);
-    const { theme } = useContext(ThemeContext);
-  const { language } = useContext(LanguageContext);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (taskToEdit) {
-      handleChangeTitle({ target: { value: taskToEdit.title } });
-      handleChangeDescription({ target: { value: taskToEdit.description } });
-      handleChangeTask({ target: { value: taskToEdit.task } });
-      handleChangeStatus(taskToEdit.status);
-      handleChangePrior(taskToEdit.priority);
-      handleChangeIssue(taskToEdit.issue);
-      handleChangeComment({ target: { value: taskToEdit.comment } });
-      handleChangeAssignee(taskToEdit.assignee);
-    }
-  }, [taskToEdit]);
+  const handleOpenCreateModal = () => {
+    dispatch(setSelectedTask({ mode: "create" }));
+  };
 
   return (
-    <>
-        <Button type="primary" onClick={() => {setMode("create");showModal()}} className={theme === 'light' ? 'create_task create_task-light' : 'create_task create_task-dark'}>{language==="EN" ? "Add a new task" : "Додати нову задачу"}</Button>
-    </>
+    <div style={{ marginBottom: "1rem" }}>
+      <Button type="primary" onClick={handleOpenCreateModal}>
+        ➕ Створити задачу
+      </Button>
+    </div>
   );
 }
